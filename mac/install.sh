@@ -9,4 +9,8 @@ echo ""
 echo "______________"
 echo ""
 bash ./scripts/02_homebrew.sh
+echo ""
+echo "______________"
+echo ""
+bash ./scripts/03_git.sh
 
