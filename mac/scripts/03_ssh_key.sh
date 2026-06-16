@@ -80,6 +80,7 @@ fi
 echo ""
 echo "✦ Probando conexión con GitHub."
 
+echo ""
 ssh -T git@github.com
 
 echo ""
