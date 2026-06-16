@@ -1,18 +1,18 @@
+git_username=$(git config --global user.name)
+git_email=$(git config --global user.email)
+
 echo "✦ Iniciando configuración de git"
+
 echo ""
 if brew list git &> /dev/null; then
     echo ""
     echo "✦ Git instalado mediante Homebrew"
 else
     echo ""
-    echo "✦ Actualizando homebrew"
-    echo ""
-    brew update
-    echo ""
-    brew upgrade
-    echo ""
     echo "✦ Instalando git mediante homebrew"
+
     brew install git
+
     echo ""
     echo "✦ Git instalado exitosamente"
 fi
@@ -20,21 +20,63 @@ fi
 echo ""
 echo "✦ Configuración inicial de git"
 
-echo ""
-read -p "✦ Por favor ingresa el nombre que se va a registrar en git: " user_name
-git config --global user.name "$user_name"
+if [ -n "$git_username" ]; then
+    echo ""
+    echo "✦ Actualmente esta configurado el nombre: $git_username"
 
-echo ""
-read -p "✦ Por favor ingresa tu correo electrónico: " user_email
-git config --global user.email "$user_email"
+    echo ""
+    read -p "¿Deseas modificarlo? [y/n]" update_username
+
+    case "$update_username" in
+    [yY])
+        echo ""
+        read -p "✦ Por favor ingresa el nombre que se va a registrar en git: " new_username
+        git config --global user.name "$new_username"
+        ;;
+    *)
+        echo ""
+        echo "Se conserva el nombre: $git_username"
+    ;;
+    esac
+else
+    echo ""
+    read -p "✦ Por favor ingresa el nombre que se va a registrar en git: " new_username
+    git config --global user.name "$new_username"
+fi
+
+if [ -n "$git_email" ]; then
+    echo ""
+    echo "✦ Actualmente esta configurado el correo: $git_email"
+
+    echo ""
+    read -p "¿Deseas modificarlo? [y/n]" update_email
+
+    case "$update_email" in
+    [yY])
+        echo ""
+        read -p "✦ Por favor ingresa tu correo electrónico: " new_email
+        git config --global user.email "$new_email"
+        ;;
+    *)
+        echo ""
+        echo "Se conserva el correo: $git_email"
+    ;;
+    esac
+else
+    echo ""
+    read -p "✦ Por favor ingresa tu correo electrónico: " new_email
+    git config --global user.email "$new_email"
+fi
 
 echo ""
 echo "✦ Configurando el nombre de la rama por defecto"
 git config --global init.defaultBranch main
 
 echo ""
-echo "✦ Esta es tu configuración actual de git:"
-git config --list
+echo "✦ Tu configuración de git es la siguiente:"
+git config --global user.name
+git config --global user.email
+git config --global init.defaultBranch
 
 echo ""
 echo "✦ Git configurado exitosamente"
