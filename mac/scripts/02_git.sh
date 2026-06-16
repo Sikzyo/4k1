@@ -74,9 +74,15 @@ git config --global init.defaultBranch main
 
 echo ""
 echo "✦ Tu configuración de git es la siguiente:"
-git config --global user.name
-git config --global user.email
-git config --global init.defaultBranch
+
+echo ""
+echo "✦ Nombre de usuario: $(git config --global user.name)"
+
+echo ""
+echo "✦ Correo: $(git config --global user.email)"
+
+echo ""
+echo "✦ Nombre de rama por defecto:$(git config --global init.defaultBranch)"
 
 echo ""
 echo "✦ Git configurado exitosamente"
