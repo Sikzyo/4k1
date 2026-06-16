@@ -30,6 +30,7 @@ else
     echo ""
     echo "✦ El repositorio ya existe, actualizando..."
     cd "$DOTFILE_DIR"
+    echo ""
     git pull origin main
 fi
 
@@ -37,6 +38,7 @@ cd "$DOTFILE_DIR"
 if [ -f "mac/install.sh" ]; then
     echo ""
     echo "✦ Iniciando instalador de Mac"
+    echo ""
     bash mac/install.sh
 else
     echo "Error al iniciar el instalador"
