@@ -4,13 +4,12 @@ echo "Configuración personal para macOS"
 echo ""
 echo "______________"
 echo ""
-bash ./scripts/01_xcode_command_line_tools.sh
+# bash ./scripts/01_homebrew.sh
 echo ""
 echo "______________"
 echo ""
-bash ./scripts/02_homebrew.sh
+# bash ./scripts/02_git.sh
 echo ""
 echo "______________"
 echo ""
-bash ./scripts/03_git.sh
-
+# bash ./scripts/03_ssh_key.sh
