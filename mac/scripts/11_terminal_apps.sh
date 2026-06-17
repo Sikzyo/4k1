@@ -1,6 +1,6 @@
 terminal_apps=("warp" "open-code" "codex" "claude-code" "antigravity-cli")
 selected_terminal_apps=()
-DOTFILE_DIR=~/.dotfile
+DOTFILE_DIR="$HOME/.dotfile"
 
 echo "✦ Instalación de herramientas de terminal"
 

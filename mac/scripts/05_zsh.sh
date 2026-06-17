@@ -1,4 +1,4 @@
-DOTFILE_DIR=~/.dotfile
+DOTFILE_DIR="$HOME/.dotfile"
 
 echo "✦ Configuración de zsh"
 

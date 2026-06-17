@@ -1,6 +1,6 @@
 editors_available=("visual-studio-code" "cursor" "zed" "android-studio" "micro")
 selected_editors=()
-DOTFILE_DIR=~/.dotfile
+DOTFILE_DIR="$HOME/.dotfile"
 
 echo "✦ Instalación de editores de código"
 
