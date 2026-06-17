@@ -7,4 +7,5 @@ echo "✦ Aplicando configuraciones de zsh"
 
 ln -sf "$DOTFILE_DIR/mac/config/zsh/.zshrc" "$HOME/.zshrc"
 
+echo ""
 echo "✦ zsh configurado correctamente"
