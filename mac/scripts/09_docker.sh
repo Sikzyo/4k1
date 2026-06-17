@@ -1,15 +1,15 @@
 echo "✦ Configuración de Docker"
 
-if [ -d "/Applications/Docker.app" ] || command -v docker &> /dev/null; then
+if command -v docker &> /dev/null; then
     echo ""
     echo "✦ Docker ya se encuentra instalado"
 else
     echo ""
-    echo "✦ Instalando Docker Desktop mediante Homebrew"
+    echo "✦ Instalando Docker mediante Homebrew"
 
     echo ""
-    brew install --cask docker
+    brew install --cask docker-desktop
 
     echo ""
-    echo "✦ Docker Desktop instalado correctamente"
+    echo "✦ Docker instalado correctamente"
 fi
