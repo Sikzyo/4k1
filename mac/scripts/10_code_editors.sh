@@ -1,4 +1,4 @@
-editors_available=("visual-studio-code" "cursor" "zed" "micro")
+editors_available=("visual-studio-code" "cursor" "zed" "android-studio" "micro")
 selected_editors=()
 DOTFILE_DIR=~/.dotfile
 
@@ -57,7 +57,7 @@ for selected in "${selected_editors[@]}"; do
 
         mkdir -p "$HOME/Library/Application Support/Cursor/User"
 
-        ln -sf "$DOTFILE_DIR/mac/.config/cursor/settings.json" "$HOME/Library/Application Support/Cursor/User/settings.json"
+        ln -sf "$DOTFILE_DIR/mac/config/cursor/settings.json" "$HOME/Library/Application Support/Cursor/User/settings.json"
 
         ;;
     "zed")
@@ -81,9 +81,64 @@ for selected in "${selected_editors[@]}"; do
 
         mkdir -p "$HOME/.config/zed"
 
-        ln -sf "$DOTFILE_DIR/mac/.config/zed/settings.json" "$HOME/.config/zed/settings.json"
-        ln -sf "$DOTFILE_DIR/mac/.config/zed/keymap.json" "$HOME/.config/zed/keymap.json"
+        ln -sf "$DOTFILE_DIR/mac/config/zed/settings.json" "$HOME/.config/zed/settings.json"
+        ln -sf "$DOTFILE_DIR/mac/config/zed/keymap.json" "$HOME/.config/zed/keymap.json"
 
+        ;;
+    "android-studio")
+        app_path="/Applications/Android Studio.app"
+        if [ -d "$app_path" ]; then
+            echo ""
+            echo "✦ Ya tienes instalado $selected"
+        else
+            echo ""
+            echo "✦ Instalando $selected..."
+
+            echo ""
+            brew install --cask android-studio
+
+            echo ""
+            echo "✦ $selected instalado correctamente"
+
+            echo ""
+            echo "✦ Abre Android Studio para terminar su configuración"
+
+            echo ""
+            echo "✦ Sigue el asistente de configuración"
+
+            echo ""
+            echo "✦ Asegúrate de instalar: Android SDK Command-line Tools (latest)"
+
+            echo ""
+            echo "✦ Cuando termine de realizar la instalación regresa a esta pantalla para continuar"
+
+            echo ""
+            open -a "Android Studio"
+
+            echo ""
+            read -p "✦ ¿Ya realizaste la instalación de android studio? [y/n]: " confirm_setup
+
+            case "$confirm_setup" in
+                [yY])
+                    echo ""
+                    echo "✦ Aceptando licencia de android"
+
+                    echo ""
+                    yes | flutter doctor --android-licenses
+
+                    echo ""
+                    echo ""
+                    ;;
+                *)
+                    ;;
+            esac
+
+            echo ""
+            echo "✦ Validando instalación de Flutter con Flutter Doctor"
+
+            echo ""
+            flutter doctor
+        fi
         ;;
     "micro")
         if brew list micro &> /dev/null; then
