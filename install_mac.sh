@@ -20,8 +20,7 @@ if ! xcode-select -p &> /dev/null; then
     echo "✦ ¡Linea de comandos instalada correctamente!"
 fi
 
-# DOTFILE_DIR=~/.dotfile
-DOTFILE_DIR=$(pwd)
+DOTFILE_DIR=~/.dotfile
 
 if [ ! -d "$DOTFILE_DIR" ]; then
     echo ""
