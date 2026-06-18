@@ -7,6 +7,10 @@ y este proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.h
 
 ## [Unreleased]
 
+### Changed
+
+- Ubicación del logo en el archivo `README.md` cambiada para mostrarse en línea justo después del nombre del proyecto, garantizando la compatibilidad con el formateador Prettier.
+
 ## [1.0.0] - 2026-06-18
 
 ### Added

@@ -1,10 +1,10 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/Icon-white.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/Icon-black.svg">
-  <img alt="4k1 Logo" src="assets/Icon-black.svg" width="96" height="96">
-</picture>
+# 4k1 
 
-# 4k1
+<picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/Icon-white.svg">
+    <source media="(prefers-color-scheme: light)" srcset="assets/Icon-black.svg">
+    <img alt="4k1 Logo" src="assets/Icon-black.svg" height="24" align="center">
+</picture>
 
 > Sistema modular e interactivo de dotfiles para configurar entornos de desarrollo completos en macOS.
 
@@ -27,14 +27,14 @@ Para iniciar la configuración en una instalación limpia de macOS:
 
 ## Estructura del Proyecto
 
-*   [install_mac.sh](file:///Users/jane/Develop/4k1/install_mac.sh) — Script principal de entrada para macOS.
-*   [install_linux.sh](file:///Users/jane/Develop/4k1/install_linux.sh) — Script principal de entrada para Linux (en desarrollo).
-*   [mac/](file:///Users/jane/Develop/4k1/mac) — Automatizaciones y configuraciones para macOS.
-    *   [install.sh](file:///Users/jane/Develop/4k1/mac/install.sh) — Coordinador del instalador secuencial.
-    *   [config/](file:///Users/jane/Develop/4k1/mac/config) — Ajustes para Zsh, Cursor y Zed.
-    *   [scripts/](file:///Users/jane/Develop/4k1/mac/scripts) — Scripts modulares numerados.
-    *   [skills/](file:///Users/jane/Develop/4k1/mac/skills) — Skills locales para integración con agentes de IA.
-*   [linux/](file:///Users/jane/Develop/4k1/linux) — Soporte para Linux (en desarrollo).
+- [install_mac.sh](file:///Users/jane/Develop/4k1/install_mac.sh) — Script principal de entrada para macOS.
+- [install_linux.sh](file:///Users/jane/Develop/4k1/install_linux.sh) — Script principal de entrada para Linux (en desarrollo).
+- [mac/](file:///Users/jane/Develop/4k1/mac) — Automatizaciones y configuraciones para macOS.
+  - [install.sh](file:///Users/jane/Develop/4k1/mac/install.sh) — Coordinador del instalador secuencial.
+  - [config/](file:///Users/jane/Develop/4k1/mac/config) — Ajustes para Zsh, Cursor y Zed.
+  - [scripts/](file:///Users/jane/Develop/4k1/mac/scripts) — Scripts modulares numerados.
+  - [skills/](file:///Users/jane/Develop/4k1/mac/skills) — Skills locales para integración con agentes de IA.
+- [linux/](file:///Users/jane/Develop/4k1/linux) — Soporte para Linux (en desarrollo).
 
 ---
 
