@@ -7,6 +7,10 @@ y este proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.h
 
 ## [Unreleased]
 
+### Changed
+
+- Aumento de la altura del logo en el `README.md` de 24px a 64px para mejorar la visibilidad.
+
 ## [1.0.1] - 2026-06-18
 
 ### Changed
