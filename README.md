@@ -1,3 +1,5 @@
+<img src="assets/Icon.svg" alt="4k1 Logo" width="96" height="96" />
+
 # 4k1
 
 > Sistema modular e interactivo de dotfiles para configurar entornos de desarrollo completos en macOS.
