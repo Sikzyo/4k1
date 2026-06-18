@@ -51,4 +51,4 @@ bash ./mac/scripts/12_ai_agents.sh
 echo ""
 echo "______________"
 echo ""
-#bash ./mac/scripts/13_gui_apps.sh
+bash ./mac/scripts/13_gui_apps.sh
