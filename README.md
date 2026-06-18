@@ -3,7 +3,7 @@
 <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/Icon-white.svg">
     <source media="(prefers-color-scheme: light)" srcset="assets/Icon-black.svg">
-    <img alt="4k1 Logo" src="assets/Icon-black.svg" height="24" align="center">
+    <img alt="4k1 Logo" src="assets/Icon-black.svg" height="48" align="center">
 </picture>
 
 <br>
