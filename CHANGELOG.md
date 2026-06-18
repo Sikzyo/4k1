@@ -7,9 +7,14 @@ y este proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.h
 
 ## [Unreleased]
 
+## [1.0.1] - 2026-06-18
+
 ### Changed
 
 - Ubicación del logo en el archivo `README.md` cambiada para mostrarse en línea justo después del nombre del proyecto, garantizando la compatibilidad con el formateador Prettier.
+- Reducción de la altura del logo en el `README.md` de 48px a 24px para un diseño más compacto.
+- Eliminación de la descripción redundante en bloque y saltos de línea adicionales en el `README.md`.
+- Actualización de las dimensiones y trazados vectoriales del logo (`Icon-black.svg` e `Icon-white.svg`).
 
 ## [1.0.0] - 2026-06-18
 
