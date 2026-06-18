@@ -7,6 +7,7 @@
 </picture>
 
 <br>
+<br>
 
 > Sistema modular e interactivo de dotfiles para configurar entornos de desarrollo completos en macOS.
 
