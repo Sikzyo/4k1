@@ -20,8 +20,7 @@ mkdir -p "$HOME/.gemini/antigravity"
 echo ""
 echo "✦ Instalando skills"
 
-# Eliminamos cualquier residuo (archivo, carpeta o symlink viejo) 
-# y creamos el symlink limpio usando -shf
+
 rm -rf "$HOME/.agents/skills" && ln -shf "$DOTFILE_DIR/mac/skills" "$HOME/.agents/skills"
 rm -rf "$HOME/.claude/skills" && ln -shf "$DOTFILE_DIR/mac/skills" "$HOME/.claude/skills"
 rm -rf "$HOME/.gemini/antigravity-cli/skills" && ln -shf "$DOTFILE_DIR/mac/skills" "$HOME/.gemini/antigravity-cli/skills"

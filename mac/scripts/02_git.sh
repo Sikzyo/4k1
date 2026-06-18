@@ -28,15 +28,15 @@ if [ -n "$git_username" ]; then
     read -p "¿Deseas modificarlo? [y/n]" update_username
 
     case "$update_username" in
-    [yY])
-        echo ""
-        read -p "✦ Por favor ingresa el nombre que se va a registrar en git: " new_username
-        git config --global user.name "$new_username"
+        [yY])
+            echo ""
+            read -p "✦ Por favor ingresa el nombre que se va a registrar en git: " new_username
+            git config --global user.name "$new_username"
         ;;
-    *)
-        echo ""
-        echo "Se conserva el nombre: $git_username"
-    ;;
+        *)
+            echo ""
+            echo "Se conserva el nombre: $git_username"
+        ;;
     esac
 else
     echo ""
@@ -52,15 +52,15 @@ if [ -n "$git_email" ]; then
     read -p "¿Deseas modificarlo? [y/n]" update_email
 
     case "$update_email" in
-    [yY])
-        echo ""
-        read -p "✦ Por favor ingresa tu correo electrónico: " new_email
-        git config --global user.email "$new_email"
+        [yY])
+            echo ""
+            read -p "✦ Por favor ingresa tu correo electrónico: " new_email
+            git config --global user.email "$new_email"
         ;;
-    *)
-        echo ""
-        echo "Se conserva el correo: $git_email"
-    ;;
+        *)
+            echo ""
+            echo "Se conserva el correo: $git_email"
+        ;;
     esac
 else
     echo ""

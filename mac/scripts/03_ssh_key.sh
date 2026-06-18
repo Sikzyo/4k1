@@ -11,7 +11,7 @@ if [ ! -f "$HOME/.ssh/id_ed25519.pub" ]; then
     fi
 
     echo ""
-    ssh-keygen -t ed25519 -C "$git_email" 
+    ssh-keygen -t ed25519 -C "$git_email"
 
     echo ""
     echo "✦ Iniciando agente SSH."
@@ -61,16 +61,16 @@ if [ ! -f "$HOME/.ssh/id_ed25519.pub" ]; then
     echo ""
     echo "✦ En el campo Title, agrega un nombre descriptivo."
     echo "✦ En el campo Key, pega tu clave pública (ya esta copiada en el portapapeles)."
-    
+
     echo ""
     read -p "✦ ¿Deseas abrir la pagina de GitHub? [y/n]" open_github
 
     case "$open_github" in
-    [yY])
-        open "https://github.com/"
+        [yY])
+            open "https://github.com/"
         ;;
-    *)
-    ;;
+        *)
+        ;;
     esac
 
     echo ""

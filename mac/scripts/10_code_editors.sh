@@ -9,155 +9,155 @@ for editor in "${editors_available[@]}"; do
     read -p "✦ ¿Quieres instalar $editor? [y/n]: " install_editor
 
     case "$install_editor" in
-    [yY])
-        selected_editors+=("$editor")
+        [yY])
+            selected_editors+=("$editor")
         ;;
-    *)
-    ;;
+        *)
+        ;;
     esac
 
 done
 
 for selected in "${selected_editors[@]}"; do
     case "$selected" in
-    "visual-studio-code")
-        app_path="/Applications/Visual Studio Code.app"
-        if [ -d "$app_path" ]; then
-            echo ""
-            echo "✦ Ya tienes instalado $selected"
-        else
-            echo ""
-            echo "✦ Instalando $selected..."
+        "visual-studio-code")
+            app_path="/Applications/Visual Studio Code.app"
+            if [ -d "$app_path" ]; then
+                echo ""
+                echo "✦ Ya tienes instalado $selected"
+            else
+                echo ""
+                echo "✦ Instalando $selected..."
 
-            echo ""
-            brew install --cask visual-studio-code
+                echo ""
+                brew install --cask visual-studio-code
 
-            echo ""
-            echo "✦ $selected instalado correctamente"
-        fi
+                echo ""
+                echo "✦ $selected instalado correctamente"
+            fi
         ;;
-    "cursor")
-        app_path="/Applications/Cursor.app"
-        if [ -d "$app_path" ]; then
-            echo ""
-            echo "✦ Ya tienes instalado $selected"
-        else
-            echo ""
-            echo "✦ Instalando $selected..."
+        "cursor")
+            app_path="/Applications/Cursor.app"
+            if [ -d "$app_path" ]; then
+                echo ""
+                echo "✦ Ya tienes instalado $selected"
+            else
+                echo ""
+                echo "✦ Instalando $selected..."
+
+                echo ""
+                brew install --cask cursor
+
+                echo ""
+                echo "✦ $selected instalado correctamente"
+            fi
 
             echo ""
-            brew install --cask cursor
+            echo "✦ Aplicando configuraciones"
 
-            echo ""
-            echo "✦ $selected instalado correctamente"
-        fi
+            mkdir -p "$HOME/Library/Application Support/Cursor/User"
 
-        echo ""
-        echo "✦ Aplicando configuraciones"
-
-        mkdir -p "$HOME/Library/Application Support/Cursor/User"
-
-        ln -sf "$DOTFILE_DIR/mac/config/cursor/settings.json" "$HOME/Library/Application Support/Cursor/User/settings.json"
-
-        ;;
-    "zed")
-        app_path="/Applications/Zed.app"
-        if [ -d "$app_path" ]; then
-            echo ""
-            echo "✦ Ya tienes instalado $selected"
-        else
-            echo ""
-            echo "✦ Instalando $selected..."
-
-            echo ""
-            brew install --cask zed
-
-            echo ""
-            echo "✦ $selected instalado correctamente"
-        fi
-
-        echo ""
-        echo "✦ Aplicando configuraciones"
-
-        mkdir -p "$HOME/.config/zed"
-
-        ln -sf "$DOTFILE_DIR/mac/config/zed/settings.json" "$HOME/.config/zed/settings.json"
-        ln -sf "$DOTFILE_DIR/mac/config/zed/keymap.json" "$HOME/.config/zed/keymap.json"
+            ln -sf "$DOTFILE_DIR/mac/config/cursor/settings.json" "$HOME/Library/Application Support/Cursor/User/settings.json"
 
         ;;
-    "android-studio")
-        app_path="/Applications/Android Studio.app"
-        if [ -d "$app_path" ]; then
-            echo ""
-            echo "✦ Ya tienes instalado $selected"
-        else
-            echo ""
-            echo "✦ Instalando $selected..."
+        "zed")
+            app_path="/Applications/Zed.app"
+            if [ -d "$app_path" ]; then
+                echo ""
+                echo "✦ Ya tienes instalado $selected"
+            else
+                echo ""
+                echo "✦ Instalando $selected..."
+
+                echo ""
+                brew install --cask zed
+
+                echo ""
+                echo "✦ $selected instalado correctamente"
+            fi
 
             echo ""
-            brew install --cask android-studio
+            echo "✦ Aplicando configuraciones"
 
-            echo ""
-            echo "✦ $selected instalado correctamente"
+            mkdir -p "$HOME/.config/zed"
 
-            echo ""
-            echo "✦ Abre Android Studio para terminar su configuración"
+            ln -sf "$DOTFILE_DIR/mac/config/zed/settings.json" "$HOME/.config/zed/settings.json"
+            ln -sf "$DOTFILE_DIR/mac/config/zed/keymap.json" "$HOME/.config/zed/keymap.json"
 
-            echo ""
-            echo "✦ Sigue el asistente de configuración"
+        ;;
+        "android-studio")
+            app_path="/Applications/Android Studio.app"
+            if [ -d "$app_path" ]; then
+                echo ""
+                echo "✦ Ya tienes instalado $selected"
+            else
+                echo ""
+                echo "✦ Instalando $selected..."
 
-            echo ""
-            echo "✦ Asegúrate de instalar: Android SDK Command-line Tools (latest)"
+                echo ""
+                brew install --cask android-studio
 
-            echo ""
-            echo "✦ Cuando termine de realizar la instalación regresa a esta pantalla para continuar"
+                echo ""
+                echo "✦ $selected instalado correctamente"
 
-            echo ""
-            open -a "Android Studio"
+                echo ""
+                echo "✦ Abre Android Studio para terminar su configuración"
 
-            echo ""
-            read -p "✦ ¿Ya realizaste la instalación de android studio? [y/n]: " confirm_setup
+                echo ""
+                echo "✦ Sigue el asistente de configuración"
 
-            case "$confirm_setup" in
-                [yY])
-                    echo ""
-                    echo "✦ Aceptando licencia de android"
+                echo ""
+                echo "✦ Asegúrate de instalar: Android SDK Command-line Tools (latest)"
 
-                    echo ""
-                    yes | flutter doctor --android-licenses
+                echo ""
+                echo "✦ Cuando termine de realizar la instalación regresa a esta pantalla para continuar"
 
-                    echo ""
-                    echo ""
+                echo ""
+                open -a "Android Studio"
+
+                echo ""
+                read -p "✦ ¿Ya realizaste la instalación de android studio? [y/n]: " confirm_setup
+
+                case "$confirm_setup" in
+                    [yY])
+                        echo ""
+                        echo "✦ Aceptando licencia de android"
+
+                        echo ""
+                        yes | flutter doctor --android-licenses
+
+                        echo ""
+                        echo ""
                     ;;
-                *)
+                    *)
                     ;;
-            esac
+                esac
 
-            echo ""
-            echo "✦ Validando instalación de Flutter con Flutter Doctor"
+                echo ""
+                echo "✦ Validando instalación de Flutter con Flutter Doctor"
 
-            echo ""
-            flutter doctor
-        fi
+                echo ""
+                flutter doctor
+            fi
         ;;
-    "micro")
-        if brew list micro &> /dev/null; then
-            echo ""
-            echo "✦ Ya tienes instalado $selected"
-        else
-            echo ""
-            echo "✦ Instalando $selected..."
+        "micro")
+            if brew list micro &> /dev/null; then
+                echo ""
+                echo "✦ Ya tienes instalado $selected"
+            else
+                echo ""
+                echo "✦ Instalando $selected..."
 
-            echo ""
-            brew install micro
+                echo ""
+                brew install micro
 
-            echo ""
-            echo "✦ $selected instalado correctamente"
-        fi
+                echo ""
+                echo "✦ $selected instalado correctamente"
+            fi
         ;;
-    *)
-        echo ""
-        echo "✦ No hay mas editores por instalar"
+        *)
+            echo ""
+            echo "✦ No hay mas editores por instalar"
         ;;
     esac
 done
