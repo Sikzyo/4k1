@@ -12,6 +12,7 @@ y este proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.h
 ### Added
 
 - Integración del icono del proyecto en la cabecera del archivo `README.md` (según las indicaciones de la skill `create-readme`).
+- Soporte para modo claro/oscuro en el logo del `README.md` usando la etiqueta `<picture>` y dos variantes del logo (`Icon-white.svg` e `Icon-black.svg`).
 
 ## [0.1.0] - 2026-06-18
 

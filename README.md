@@ -1,4 +1,8 @@
-<img src="assets/Icon.svg" alt="4k1 Logo" width="96" height="96" />
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/Icon-white.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/Icon-black.svg">
+  <img alt="4k1 Logo" src="assets/Icon-black.svg" width="96" height="96">
+</picture>
 
 # 4k1
 
