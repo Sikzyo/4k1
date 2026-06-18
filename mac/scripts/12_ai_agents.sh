@@ -21,10 +21,10 @@ echo ""
 echo "✦ Instalando skills"
 
 
-rm -rf "$HOME/.agents/skills" && ln -shf "$DOTFILE_DIR/mac/skills" "$HOME/.agents/skills"
-rm -rf "$HOME/.claude/skills" && ln -shf "$DOTFILE_DIR/mac/skills" "$HOME/.claude/skills"
-rm -rf "$HOME/.gemini/antigravity-cli/skills" && ln -shf "$DOTFILE_DIR/mac/skills" "$HOME/.gemini/antigravity-cli/skills"
-rm -rf "$HOME/.gemini/antigravity/skills" && ln -shf "$DOTFILE_DIR/mac/skills" "$HOME/.gemini/antigravity/skills"
+rm -rf "$HOME/.agents/skills" && cp -R "$DOTFILE_DIR/mac/skills" "$HOME/.agents/skills"
+rm -rf "$HOME/.claude/skills" && cp -R "$DOTFILE_DIR/mac/skills" "$HOME/.claude/skills"
+rm -rf "$HOME/.gemini/antigravity-cli/skills" && cp -R "$DOTFILE_DIR/mac/skills" "$HOME/.gemini/antigravity-cli/skills"
+rm -rf "$HOME/.gemini/antigravity/skills" && cp -R "$DOTFILE_DIR/mac/skills" "$HOME/.gemini/antigravity/skills"
 
 echo ""
 echo "✦ Skills instaladas correctamente"

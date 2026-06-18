@@ -7,9 +7,12 @@ y este proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.h
 
 ## [Unreleased]
 
+## [1.0.2] - 2026-06-18
+
 ### Changed
 
 - Aumento de la altura del logo en el `README.md` de 24px a 64px para mejorar la visibilidad.
+- Modificación del instalador de agentes de IA para copiar físicamente las skills en lugar de usar enlaces simbólicos.
 
 ## [1.0.1] - 2026-06-18
 
