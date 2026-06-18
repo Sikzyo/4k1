@@ -47,7 +47,7 @@ bash ./mac/scripts/11_terminal_apps.sh
 echo ""
 echo "______________"
 echo ""
-#bash ./mac/scripts/12_ai_agents.sh
+bash ./mac/scripts/12_ai_agents.sh
 echo ""
 echo "______________"
 echo ""
