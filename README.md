@@ -6,6 +6,8 @@
     <img alt="4k1 Logo" src="assets/Icon-black.svg" height="24" align="center">
 </picture>
 
+<br>
+
 > Sistema modular e interactivo de dotfiles para configurar entornos de desarrollo completos en macOS.
 
 4k1 automatiza de manera interactiva la instalación de herramientas esenciales, perfiles de editores, fuentes y agentes de IA.
