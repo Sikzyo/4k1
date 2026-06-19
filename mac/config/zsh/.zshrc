@@ -1,7 +1,7 @@
-DOTFILE_DIR="$HOME/.dotfile"
+ZSH_CONFIG_DIR="$HOME/.config/zsh"
 
-if [ -d "$DOTFILE_DIR/mac/config/zsh" ]; then
-    for file in "$DOTFILE_DIR"/mac/config/zsh/*.zsh; do
+if [ -d "$ZSH_CONFIG_DIR" ]; then
+    for file in "$ZSH_CONFIG_DIR"/*.zsh; do
         if [ -f "$file" ]; then
             source "$file"
         fi

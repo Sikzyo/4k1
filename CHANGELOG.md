@@ -7,6 +7,14 @@ y este proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.h
 
 ## [Unreleased]
 
+## [1.0.3] - 2026-06-18
+
+### Changed
+
+- Reemplazo de enlaces simbólicos por copias físicas de archivos de configuración para editores de código (Cursor y Zed) y perfiles de terminal.
+- Reorganización de la configuración dinámica de Zsh para cargarse desde la ruta local permanente `$HOME/.config/zsh` en lugar del repositorio temporal `.dotfile`.
+- Actualización de `install_mac.sh` para limpiar y eliminar el directorio temporal `.dotfile` al finalizar la instalación de forma segura.
+
 ## [1.0.2] - 2026-06-18
 
 ### Changed

@@ -57,7 +57,7 @@ for selected in "${selected_editors[@]}"; do
 
             mkdir -p "$HOME/Library/Application Support/Cursor/User"
 
-            ln -sf "$DOTFILE_DIR/mac/config/cursor/settings.json" "$HOME/Library/Application Support/Cursor/User/settings.json"
+            rm -f "$HOME/Library/Application Support/Cursor/User/settings.json" && cp "$DOTFILE_DIR/mac/config/cursor/settings.json" "$HOME/Library/Application Support/Cursor/User/settings.json"
 
         ;;
         "zed")
@@ -81,8 +81,8 @@ for selected in "${selected_editors[@]}"; do
 
             mkdir -p "$HOME/.config/zed"
 
-            ln -sf "$DOTFILE_DIR/mac/config/zed/settings.json" "$HOME/.config/zed/settings.json"
-            ln -sf "$DOTFILE_DIR/mac/config/zed/keymap.json" "$HOME/.config/zed/keymap.json"
+            rm -f "$HOME/.config/zed/settings.json" && cp "$DOTFILE_DIR/mac/config/zed/settings.json" "$HOME/.config/zed/settings.json"
+            rm -f "$HOME/.config/zed/keymap.json" && cp "$DOTFILE_DIR/mac/config/zed/keymap.json" "$HOME/.config/zed/keymap.json"
 
         ;;
         "android-studio")

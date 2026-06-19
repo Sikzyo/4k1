@@ -40,6 +40,12 @@ if [ -f "mac/install.sh" ]; then
     echo "✦ Iniciando instalador de Mac"
     echo ""
     bash mac/install.sh
+
+    echo ""
+    echo "✦ Limpiando instalación (eliminando $DOTFILE_DIR)..."
+    cd "$HOME"
+    rm -rf "$DOTFILE_DIR"
+    echo "✦ Instalación finalizada y carpeta temporal eliminada."
 else
     echo "Error al iniciar el instalador"
     exit 1
