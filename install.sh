@@ -18,7 +18,7 @@ esac
 xcode_install() {
     echo "✦ Vamos a validar si tienes instalado Xcode"
 
-    sleep 1.5
+    sleep 0
 
     echo ""
     if ! xcode-select -p &> /dev/null; then
@@ -29,7 +29,7 @@ xcode_install() {
         echo "✦ Ve a esa ventana y completa la instalación"
         echo "✦ Cuando la instalación haya terminado, regresa aquí"
 
-        sleep 1.5
+        sleep 0
 
         xcode-select --install
 
@@ -38,8 +38,15 @@ xcode_install() {
             sleep 5
         done
 
-        echo ""
-        echo "✦ ¡Linea de comandos instalada correctamente!"
+        if ! xcode-select -p &> /dev/null; then
+            echo ""
+            echo "✦ ¡Linea de comandos instalada correctamente!"
+        else
+            echo ""
+            echo "✦ La instalación de las herramientas fallo"
+            echo "✦ No se puede continuar con la instalación"
+            exit 1
+        fi
     else
         echo "✦ La linea de comandos para Xcode ya se encuentra instalada"
     fi
@@ -48,7 +55,7 @@ xcode_install() {
 mac_installer() {
     xcode_install
 
-    sleep 1.5
+    sleep 0
 
     if [ -d "$DOTFILE_DIR" ]; then
         echo ""
@@ -57,26 +64,26 @@ mac_installer() {
         rm -rf "$DOTFILE_DIR"
     fi
 
-    sleep 1.5
+    sleep 0
 
     echo ""
     echo "=> Creando carpeta"
 
     mkdir -p "$HOME/.4k1"
 
-    sleep 1.5
+    sleep 0
 
     echo ""
     echo "=> Clonando repositorio de GitHub"
 
-    sleep 1.5
+    sleep 0
 
     echo ""
     git clone https://github.com/Sikzyo/4k1.git "$DOTFILE_DIR"
 
-    cd "$DOTFILE_DIR"
+    # cd "$DOTFILE_DIR"
 
-    sleep 1.5
+    sleep 0
 
     echo ""
     bash mac/install.sh
@@ -86,21 +93,23 @@ finish_install() {
     echo ""
     echo "✦ Iniciando proceso de limpieza"
 
-    sleep 1.5
+    sleep 0
 
+    echo ""
     echo "=> Limpiando carpeta de instalación"
 
     cd "$HOME"
 
     rm -rf "$DOTFILE_DIR"
 
-    sleep 1.5
+    sleep 0
 
     echo ""
-    echo "=> Limpieza terminada"
+    echo "✦ Limpieza terminada"
 
-    sleep 1.5
+    sleep 0
 
+    echo ""
     echo "✦ Instalación terminada, gracias por utilizar 4k1"
     exit 0
 }
@@ -109,39 +118,39 @@ echo "✦ Preparando instalación"
 
 set -e
 
-sleep 1.5
+sleep 0
 
 echo ""
 echo "✦ Vamos a validar tu sistema operativo primero"
 
-sleep 1.5
+sleep 0
 
 echo ""
 echo "=> Validando sistema..."
 
-sleep 1.5
+sleep 0
 
 echo ""
 echo "✦ Tu sistema operativo es: $USER_OS"
 
-sleep 1.5
+sleep 0
 
 echo ""
 case "$USER_OS" in
     "Mac")
         echo "=> Iniciando configuración básica..."
         echo ""
-        sleep 1.5
+        sleep 0
         mac_installer
     ;;
     "Linux")
         echo "=> Actualmente estamos trabajando en el soporte para Linux, esperamos lanzarlo lo mas pronto posible"
-        sleep 1.5
+        sleep 0
         exit 0
     ;;
     *)
         echo "=> Actualmente no disponemos soporte para tu sistema operativo"
-        sleep 1.5
+        sleep 0
         exit 0
     ;;
 esac
