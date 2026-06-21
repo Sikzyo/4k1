@@ -1,3 +1,5 @@
+DOTFILE_DIR="$HOME/.4k1/mac/scripts"
+
 option_menu(){
     echo ""
     echo "--------------"
@@ -52,7 +54,7 @@ while true; do
     case $selected_option in
     "1")
         echo ""
-        if confirmation_message "Instalación completa" "mac/scripts/full_install.sh"; then
+        if confirmation_message "Instalación completa" "$DOTFILE_DIR/full_install.sh"; then
             break
         fi
     ;;

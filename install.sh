@@ -2,7 +2,6 @@
 
 USER_OS="Indefinido"
 DOTFILE_DIR="$HOME/.4k1"
-# DOTFILE_DIR="$HOME/Develop/4k1"
 
 case $OSTYPE in
     "darwin"*)
