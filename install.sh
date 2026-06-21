@@ -38,7 +38,7 @@ xcode_install() {
             sleep 5
         done
 
-        if ! xcode-select -p &> /dev/null; then
+        if xcode-select -p &> /dev/null; then
             echo ""
             echo "✦ ¡Linea de comandos instalada correctamente!"
         else
