@@ -2,6 +2,7 @@
 
 USER_OS="Indefinido"
 DOTFILE_DIR="$HOME/.4k1"
+# DOTFILE_DIR="$HOME/Develop/4k1"
 
 case $OSTYPE in
     "darwin"*)
@@ -81,7 +82,7 @@ mac_installer() {
     echo ""
     git clone https://github.com/Sikzyo/4k1.git "$DOTFILE_DIR"
 
-    # cd "$DOTFILE_DIR"
+    cd "$DOTFILE_DIR"
 
     sleep 0
 
