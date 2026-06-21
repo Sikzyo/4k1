@@ -1,6 +1,7 @@
 #!/bin/bash
 
 USER_OS="Indefinido"
+DOTFILE_DIR="$HOME/.4k1"
 
 case $OSTYPE in
     "darwin"*)
@@ -48,8 +49,6 @@ mac_installer() {
     xcode_install
 
     sleep 1.5
-
-    DOTFILE_DIR="$HOME/.4k1"
 
     if [ -d "$DOTFILE_DIR" ]; then
         echo ""
