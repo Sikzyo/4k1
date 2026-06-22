@@ -20,7 +20,7 @@ confirmation_message(){
             [yY])
                 echo ""
                 echo "=> Iniciando $name..."
-                sleep 1
+                sleep 0.5
                 echo ""
                 bash "$next_step"
                 return 0
@@ -28,7 +28,7 @@ confirmation_message(){
             [nN])
                 echo ""
                 echo "=> Regresando al menu principal"
-                sleep 1
+                sleep 0.5
                 return 1
             ;;
             *)
@@ -43,7 +43,7 @@ confirmation_message(){
 echo "✦ Instalador para Mac ✦"
 set -e
 
-sleep 1
+sleep 0.5
 
 while true; do
     option_menu
