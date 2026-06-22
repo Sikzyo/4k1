@@ -1,7 +1,7 @@
 GIT_USERNAME=$(git config --global user.name)
 GIT_EMAIL=$(git config --global user.email)
 
-echo "✦ Modulo de Git ✦"
+echo "✦ Modulo Git ✦"
 set -e
 
 sleep 1
@@ -49,7 +49,7 @@ if [ -n "$GIT_USERNAME" ]; then
 
     while true; do
         echo ""
-        read -p "✦ ¿Deseas actualizar tu nombre?: [y/n]" update_username
+        read -p "✦ ¿Deseas actualizar tu nombre? [y/n]: " update_username
 
         sleep 1
 
@@ -79,7 +79,6 @@ if [ -n "$GIT_USERNAME" ]; then
             *)
                 echo ""
                 echo "=> Opción no valida, por favor presiona 'y' o 'n'"
-                echo ""
             ;;
        esac
     done
@@ -115,7 +114,7 @@ if [ -n "$GIT_EMAIL" ]; then
 
     while true; do
         echo ""
-        read -p "✦ ¿Deseas actualizar tu correo?: [y/n]" update_email
+        read -p "✦ ¿Deseas actualizar tu correo? [y/n]: " update_email
 
         sleep 1
 
@@ -145,7 +144,6 @@ if [ -n "$GIT_EMAIL" ]; then
             *)
                 echo ""
                 echo "=> Opción no valida, por favor presiona 'y' o 'n'"
-                echo ""
             ;;
        esac
     done
@@ -190,7 +188,7 @@ echo "=> Nombre de usuario: $(git config --global user.name)"
 echo "=> Correo: $(git config --global user.email)"
 echo "=> Nombre de rama por defecto:$(git config --global init.defaultBranch)"
 
-sleep 3
+sleep 5
 
 echo ""
 echo "✦ Git instalado y configurado correctamente"
