@@ -16,12 +16,11 @@ confirmation_message(){
     while true; do
         read -p "=> Seleccionaste la opción $name ¿Deseas continuar? [y/n]: " confirm_option
 
-        echo ""
         case $confirm_option in
             [yY])
                 echo ""
                 echo "=> Iniciando $name..."
-                sleep 0
+                sleep 1
                 echo ""
                 bash "$next_step"
                 return 0
@@ -29,12 +28,13 @@ confirmation_message(){
             [nN])
                 echo ""
                 echo "=> Regresando al menu principal"
-                sleep 0
+                sleep 1
                 return 1
             ;;
             *)
                 echo ""
                 echo "=> Opción no valida, por favor presiona 'y' o 'n'"
+                echo ""
             ;;
         esac
     done     
@@ -43,14 +43,13 @@ confirmation_message(){
 echo "✦ Instalador para Mac ✦"
 set -e
 
-sleep 0
+sleep 1
 
 while true; do
     option_menu
     echo ""
     read -p "✦ Selecciona una opción: " selected_option
 
-    echo ""
     case $selected_option in
     "1")
         echo ""
@@ -66,7 +65,7 @@ while true; do
     *)
         echo ""
         echo "=> Opción no valida, por favor intenta nuevamente"
-        sleep 0
+        sleep 1
     ;;
     esac
 done

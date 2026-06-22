@@ -18,7 +18,7 @@ esac
 xcode_install() {
     echo "✦ Vamos a validar si tienes instalado Xcode"
 
-    sleep 0
+    sleep 1
 
     echo ""
     if ! xcode-select -p &> /dev/null; then
@@ -29,7 +29,7 @@ xcode_install() {
         echo "✦ Ve a esa ventana y completa la instalación"
         echo "✦ Cuando la instalación haya terminado, regresa aquí"
 
-        sleep 0
+        sleep 1
 
         xcode-select --install
 
@@ -55,7 +55,7 @@ xcode_install() {
 mac_installer() {
     xcode_install
 
-    sleep 0
+    sleep 1
 
     if [ -d "$DOTFILE_DIR" ]; then
         echo ""
@@ -64,26 +64,26 @@ mac_installer() {
         rm -rf "$DOTFILE_DIR"
     fi
 
-    sleep 0
+    sleep 1
 
     echo ""
     echo "=> Creando carpeta"
 
     mkdir -p "$HOME/.4k1"
 
-    sleep 0
+    sleep 1
 
     echo ""
     echo "=> Clonando repositorio de GitHub"
 
-    sleep 0
+    sleep 1
 
     echo ""
     git clone https://github.com/Sikzyo/4k1.git "$DOTFILE_DIR"
 
     cd "$DOTFILE_DIR"
 
-    sleep 0
+    sleep 1
 
     echo ""
     bash mac/install.sh
@@ -93,7 +93,7 @@ finish_install() {
     echo ""
     echo "✦ Iniciando proceso de limpieza"
 
-    sleep 0
+    sleep 1
 
     echo ""
     echo "=> Limpiando carpeta de instalación"
@@ -102,12 +102,12 @@ finish_install() {
 
     rm -rf "$DOTFILE_DIR"
 
-    sleep 0
+    sleep 1
 
     echo ""
     echo "✦ Limpieza terminada"
 
-    sleep 0
+    sleep 1
 
     echo ""
     echo "✦ Instalación terminada, gracias por utilizar 4k1"
@@ -118,39 +118,39 @@ echo "✦ Preparando instalación"
 
 set -e
 
-sleep 0
+sleep 1
 
 echo ""
 echo "✦ Vamos a validar tu sistema operativo primero"
 
-sleep 0
+sleep 1
 
 echo ""
 echo "=> Validando sistema..."
 
-sleep 0
+sleep 1
 
 echo ""
 echo "✦ Tu sistema operativo es: $USER_OS"
 
-sleep 0
+sleep 1
 
 echo ""
 case "$USER_OS" in
     "Mac")
         echo "=> Iniciando configuración básica..."
         echo ""
-        sleep 0
+        sleep 1
         mac_installer
     ;;
     "Linux")
         echo "=> Actualmente estamos trabajando en el soporte para Linux, esperamos lanzarlo lo mas pronto posible"
-        sleep 0
+        sleep 1
         exit 0
     ;;
     *)
         echo "=> Actualmente no disponemos soporte para tu sistema operativo"
-        sleep 0
+        sleep 1
         exit 0
     ;;
 esac
