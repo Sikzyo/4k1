@@ -1,12 +1,12 @@
 echo "✦ Modulo Homebrew ✦"
 set -e
 
-sleep 1
+sleep 0.5
 
 echo ""
 echo "=> Validando si esta instalado Homebrew"
 
-sleep 1
+sleep 0.5
 
 if command -v brew &> /dev/null; then
     echo ""
@@ -15,28 +15,27 @@ else
     echo ""
     echo "✦ Iniciando descarga de Homebrew"
 
-    sleep 1
+    sleep 0.5
 
     echo ""
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-    sleep 1
+    sleep 0.5
 
     touch "$HOME/.zprofile"
 
-    echo ""
     if ! grep -q "brew shellenv" "$HOME/.zprofile"; then
         echo >> "$HOME/.zprofile"
         echo 'eval "$(/opt/homebrew/bin/brew shellenv zsh)"' >> "$HOME/.zprofile"
     fi
     eval "$(/opt/homebrew/bin/brew shellenv zsh)"
 
-    sleep 1
+    sleep 0.5
 
     echo ""
     echo "=> Confirmando si se instalo correctamente Homebrew"
 
-    sleep 1
+    sleep 0.5
 
     if ! command -v brew &> /dev/null; then
         echo ""
