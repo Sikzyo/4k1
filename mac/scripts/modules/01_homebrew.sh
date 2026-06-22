@@ -22,6 +22,8 @@ else
 
     sleep 0
 
+    touch "$HOME/.zprofile"
+
     echo ""
     if ! grep -q "brew shellenv" "$HOME/.zprofile"; then
         echo >> "$HOME/.zprofile"
