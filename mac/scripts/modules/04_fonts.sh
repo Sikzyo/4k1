@@ -1,22 +1,18 @@
+#!/usr/bin/env bash
+
 FONTS=("font-monaspace" "font-cascadia-code" "font-jetbrains-mono" "font-google-sans-code")
 SELECTED_FONTS=()
 
 echo "✦ Modulo fuentes ✦"
 set -e
 
-sleep 0.5
-
 echo ""
 echo "✦ Selecciona las fuentes que quieres instalar en tu sistema"
-
-sleep 0.5
 
 for font in "${FONTS[@]}"; do
     while true; do
         echo ""
         read -p "✦ ¿Quieres instalar la fuente '$font'? [y/n]: " add_font
-
-        sleep 0.3
 
         case "$add_font" in
             [yY])
@@ -43,8 +39,6 @@ else
     for select_font in "${SELECTED_FONTS[@]}"; do
         echo "✦ $select_font"
     done
-
-    sleep 3
 
     echo ""
     echo "✦ Vamos a iniciar con el proceso de instalación de las fuentes"
