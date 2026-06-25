@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 GIT_USERNAME=$(git config --global user.name)
 GIT_EMAIL=$(git config --global user.email)
 
@@ -33,12 +35,12 @@ if [ -n "$GIT_USERNAME" ]; then
 
     while true; do
         echo ""
-        read -p "✦ ¿Deseas actualizar tu nombre? [y/n]: " update_username
+        read "update_username?✦ ¿Deseas actualizar tu nombre? [y/n]: " 
 
         case "$update_username" in
             [yY])
                 echo ""
-                read -p "✦ Ingresa tu nuevo nombre de usuario: " new_username
+                read "new_username?✦ Ingresa tu nuevo nombre de usuario: " 
     
                 echo ""
                 echo "=> Actualizando nombre de usuario..."
@@ -62,7 +64,7 @@ if [ -n "$GIT_USERNAME" ]; then
     done
 else
     echo ""
-    read -p "✦ Por favor ingresa el nombre de usuario que vas a registrar en git: " new_username
+    read "new_username?✦ Por favor ingresa el nombre de usuario que vas a registrar en git: " 
 
     echo ""
     echo "=> Registrando nombre de usuario..."
@@ -82,12 +84,12 @@ if [ -n "$GIT_EMAIL" ]; then
 
     while true; do
         echo ""
-        read -p "✦ ¿Deseas actualizar tu correo? [y/n]: " update_email
+        read "update_email?✦ ¿Deseas actualizar tu correo? [y/n]: " 
 
         case "$update_email" in
             [yY])
                 echo ""
-                read -p "✦ Ingresa tu nuevo correo: " new_email
+                read "new_email?✦ Ingresa tu nuevo correo: " 
     
                 echo ""
                 echo "=> Actualizando correo..."
@@ -111,7 +113,7 @@ if [ -n "$GIT_EMAIL" ]; then
     done
 else
     echo ""
-    read -p "✦ Por favor ingresa el correo que vas a registrar en git: " new_email
+    read "new_email?✦ Por favor ingresa el correo que vas a registrar en git: " 
 
     echo ""
     echo "=> Registrando correo..."

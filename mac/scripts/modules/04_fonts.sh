@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 FONTS=("font-monaspace" "font-cascadia-code" "font-jetbrains-mono" "font-google-sans-code")
 SELECTED_FONTS=()
@@ -12,7 +12,7 @@ echo "✦ Selecciona las fuentes que quieres instalar en tu sistema"
 for font in "${FONTS[@]}"; do
     while true; do
         echo ""
-        read -p "✦ ¿Quieres instalar la fuente '$font'? [y/n]: " add_font
+        read "add_font?✦ ¿Quieres instalar la fuente '$font'? [y/n]: " 
 
         case "$add_font" in
             [yY])

@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 echo "✦ Modulo Homebrew ✦"
 set -e
 

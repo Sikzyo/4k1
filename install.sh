@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env zsh
 
 USER_OS="Indefinido"
 DOTFILE_DIR="$HOME/.4k1"
@@ -18,8 +18,6 @@ esac
 xcode_install() {
     echo "✦ Vamos a validar si tienes instalado Xcode"
 
-    sleep 0.5
-
     echo ""
     if ! xcode-select -p &> /dev/null; then
         echo "=> Instalando xcode"
@@ -28,8 +26,6 @@ xcode_install() {
         echo "✦ Se ha abierto una ventana del sistema macOS"
         echo "✦ Ve a esa ventana y completa la instalación"
         echo "✦ Cuando la instalación haya terminado, regresa aquí"
-
-        sleep 1.5
 
         xcode-select --install
 
@@ -53,8 +49,6 @@ xcode_install() {
 mac_installer() {
     xcode_install
 
-    sleep 0.5
-
     if [ -d "$DOTFILE_DIR" ]; then
         echo ""
         echo "=> Limpiando instalaciones previas"
@@ -62,36 +56,26 @@ mac_installer() {
         rm -rf "$DOTFILE_DIR"
     fi
 
-    sleep 0.5
-
     echo ""
     echo "=> Creando carpeta"
 
     mkdir -p "$HOME/.4k1"
 
-    sleep 0.5
-
     echo ""
     echo "=> Clonando repositorio de GitHub"
-
-    sleep 0.5
 
     echo ""
     git clone https://github.com/Sikzyo/4k1.git "$DOTFILE_DIR"
 
     cd "$DOTFILE_DIR"
 
-    sleep 0.5
-
     echo ""
-    bash mac/install.sh
+    zsh mac/install.sh
 }
 
 finish_install() {
     echo ""
     echo "✦ Iniciando proceso de limpieza"
-
-    sleep 0.5
 
     echo ""
     echo "=> Limpiando carpeta de instalación"
@@ -100,12 +84,8 @@ finish_install() {
 
     rm -rf "$DOTFILE_DIR"
 
-    sleep 0.5
-
     echo ""
     echo "✦ Limpieza terminada"
-
-    sleep 0.5
 
     echo ""
     echo "✦ Instalación terminada, gracias por utilizar 4k1"
@@ -116,39 +96,28 @@ echo "✦ Preparando instalación"
 
 set -e
 
-sleep 0.5
-
 echo ""
 echo "✦ Vamos a validar tu sistema operativo primero"
-
-sleep 0.5
 
 echo ""
 echo "=> Validando sistema..."
 
-sleep 0.5
-
 echo ""
 echo "✦ Tu sistema operativo es: $USER_OS"
-
-sleep 1
 
 echo ""
 case "$USER_OS" in
     "Mac")
         echo "=> Iniciando configuración básica..."
         echo ""
-        sleep 0.5
         mac_installer
     ;;
     "Linux")
         echo "=> Actualmente estamos trabajando en el soporte para Linux, esperamos lanzarlo lo mas pronto posible"
-        sleep 1.5
         exit 0
     ;;
     *)
         echo "=> Actualmente no disponemos soporte para tu sistema operativo"
-        sleep 1.5
         exit 0
     ;;
 esac

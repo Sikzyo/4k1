@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 GIT_EMAIL=$(git config --global user.email)
 
 echo "✦ Modulo SSH ✦"
@@ -12,7 +14,7 @@ if [ ! -f "$HOME/.ssh/id_ed25519.pub" ]; then
 
     if [ -z "$GIT_EMAIL" ]; then
         echo ""
-        read -p "=> Ingresa un correo para generar la clave" new_email
+        read "new_email?=> Ingresa un correo para generar la clave"
 
         GIT_EMAIL=$new_email
     fi
@@ -68,7 +70,7 @@ if [ ! -f "$HOME/.ssh/id_ed25519.pub" ]; then
 
     while true; do
         echo ""
-        read -p "¿Deseas abrir la GitHub? [y/n]: " open_web
+        read "open_web?¿Deseas abrir la GitHub? [y/n]: " 
 
         case "$open_web" in
             [yY])
@@ -91,7 +93,7 @@ if [ ! -f "$HOME/.ssh/id_ed25519.pub" ]; then
     done
 
     echo ""
-    read -p "✦ Una vez que hayas agregado la clave regresa y presiona cualquier tecla para continuar"
+    read "?✦ Una vez que hayas agregado la clave regresa y presiona cualquier tecla para continuar"
 fi
 
 echo ""

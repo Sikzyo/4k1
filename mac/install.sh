@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 DOTFILE_DIR="$HOME/.4k1/mac/scripts"
 
 option_menu(){
@@ -14,21 +16,19 @@ confirmation_message(){
     local next_step="$2"
 
     while true; do
-        read -p "=> Seleccionaste la opción $name ¿Deseas continuar? [y/n]: " confirm_option
+        read "confirm_option?=> Seleccionaste la opción $name ¿Deseas continuar? [y/n]: " 
 
         case $confirm_option in
             [yY])
                 echo ""
                 echo "=> Iniciando $name..."
-                sleep 0.5
                 echo ""
-                bash "$next_step"
+                zsh "$next_step"
                 return 0
             ;;
             [nN])
                 echo ""
                 echo "=> Regresando al menu principal"
-                sleep 0.5
                 return 1
             ;;
             *)
@@ -43,12 +43,10 @@ confirmation_message(){
 echo "✦ Instalador para Mac ✦"
 set -e
 
-sleep 0.5
-
 while true; do
     option_menu
     echo ""
-    read -p "✦ Selecciona una opción: " selected_option
+    read "selected_option?✦ Selecciona una opción: "
 
     case $selected_option in
     "1")
@@ -65,7 +63,6 @@ while true; do
     *)
         echo ""
         echo "=> Opción no valida, por favor intenta nuevamente"
-        sleep 1
     ;;
     esac
 done
