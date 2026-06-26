@@ -7,7 +7,7 @@ set -e
 
 while true; do
     echo ""
-    read "confirm_update?✦ Se va a sustituir tus configuraciones de zsh ¿Deseas continuar? [y/n]:"
+    read "confirm_update?✦ Se va a sustituir tus configuraciones de zsh ¿Deseas continuar? [y/n]: "
 
     case "$confirm_update" in
         [yY])
