@@ -3,12 +3,18 @@
 DOTFILE_DIR="$HOME/.4k1/mac/scripts"
 
 option_menu(){
+    echo "   __ __  __ _____"
+    echo "  / // / / //_<  /"
+    echo " / // /_/ ,<  / / "
+    echo "/__  __/ /| |/ /  "
+    echo "  /_/ /_/ |_/_/   "
+    echo ""        
     echo ""
-    echo "--------------"
+    echo "------------------"
     echo "Menu de opciones"
     echo "1) Instalación completa"
     echo "2) Salir"
-    echo "--------------"
+    echo "------------------"
 }
 
 confirmation_message(){
