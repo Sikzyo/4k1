@@ -14,7 +14,7 @@ if [ ! -f "$HOME/.ssh/id_ed25519.pub" ]; then
 
     if [ -z "$GIT_EMAIL" ]; then
         echo ""
-        read "new_email?=> Ingresa un correo para generar la clave"
+        read "new_email?=> Ingresa un correo para generar la clave: "
 
         GIT_EMAIL=$new_email
     fi

@@ -11,7 +11,7 @@ set -e
 for tui in "${TUI_APPS[@]}"; do
     while true; do
         echo ""
-        read "install_tui?✦ ¿Quieres instalar $tui?"
+        read "install_tui?✦ ¿Quieres instalar $tui? [y/n]: "
 
         case "$install_tui" in
             [yY])
@@ -32,7 +32,7 @@ done
 for cli in "${CLI_APPS[@]}"; do
     while true; do
         echo ""
-        read "install_cli?=> ¿Quieres instalar $cli?"
+        read "install_cli?=> ¿Quieres instalar $cli? [y/n]: "
 
         case "$install_cli" in
             [yY])
