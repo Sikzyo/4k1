@@ -1,7 +1,6 @@
 #!/usr/bin/env zsh
 
-# MODULES_DIR="$HOME/.4k1/mac/scripts/modules"
-MODULES_DIR="$HOME/Develop/4k1/mac/scripts/modules"
+MODULES_DIR="$HOME/.4k1/mac/scripts/modules"
 
 set -E
 set -e
