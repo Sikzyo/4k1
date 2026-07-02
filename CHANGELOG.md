@@ -7,6 +7,12 @@ y este proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.h
 
 ## [Unreleased]
 
+## [1.0.1] - 2026-07-02
+
+### Changed
+
+- Actualización de [README.md](file:///Users/jane/Develop/4k1/README.md) para documentar la nueva estructura de módulos del instalador y el script coordinador principal `install.sh`.
+
 ## [1.0.0] - 2026-07-02
 
 ### Added
