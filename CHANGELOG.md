@@ -7,6 +7,32 @@ y este proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.h
 
 ## [Unreleased]
 
+## [1.0.0] - 2026-07-02
+
+### Added
+
+- Nuevo script `mac/scripts/full_install.sh` para la instalación completa y secuencial de todos los módulos.
+- Nuevo módulo para instalación de fuentes de texto (`mac/scripts/modules/04_fonts.zsh`).
+- Nuevo módulo para configuración del entorno JS/Node.js/Bun/pnpm (`mac/scripts/modules/06_js.zsh`).
+- Nuevo módulo para configuración del entorno Go (`mac/scripts/modules/07_go.zsh`).
+- Nuevo módulo para configuración del entorno Flutter (`mac/scripts/modules/08_flutter.zsh`).
+- Nuevo módulo para configuración de Docker (`mac/scripts/modules/09_docker.zsh`).
+- Nuevo módulo para instalación de utilidades CLI/Terminal (`mac/scripts/modules/10_terminal_apps.zsh`).
+- Nuevo módulo para instalación de aplicaciones GUI (`mac/scripts/modules/11_gui_apps.zsh`).
+- Nuevos alias de terminal agregados en `mac/config/zsh/aliases.zsh`.
+
+### Changed
+
+- Restructuración del sistema de instalación de macOS, moviendo los submódulos de instalación al subdirectorio `mac/scripts/modules/`.
+- Migración y reescritura de scripts de Bash (`.sh`) a scripts de Zsh (`.zsh`) para la configuración de entornos específicos.
+- Refinamiento y mejoras en la lógica de scripts principales como el instalador de Homebrew (`01_homebrew.sh`), configuración de Git (`02_git.sh`) y aprovisionamiento de llaves SSH (`03_ssh.zsh`).
+
+### Fixed
+
+- Asegurada la creación automática de `~/.zprofile` en el módulo de Zsh.
+- Corrección en la verificación interactiva de Xcode Command Line Tools y resolución de rutas dinámicas del instalador.
+- Ajuste de retrasos de interacción en el instalador de macOS para mejorar la experiencia de usuario.
+
 ## [0.2.0] - 2026-06-19
 
 ### Added
