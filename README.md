@@ -15,7 +15,7 @@
 Para iniciar la configuración en una instalación limpia:
 
 ```bash
-/bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/Sikzyo/4k1/main/install.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Sikzyo/4k1/main/install.sh)"
 ```
 
 > [!IMPORTANT]

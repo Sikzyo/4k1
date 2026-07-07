@@ -13,8 +13,10 @@ option_menu(){
     echo "------------------"
     echo "Menu de opciones"
     echo "1) Instalación completa"
-    echo "2) Salir"
+    echo "2) Instalación por módulos"
     echo "------------------"
+	echo "0) Para salir del instalador"
+	echo "------------------"
 }
 
 confirmation_message(){
@@ -54,20 +56,19 @@ while true; do
     echo ""
     read "selected_option?✦ Selecciona una opción: "
 
+    echo ""
     case $selected_option in
     "1")
-        echo ""
-        if confirmation_message "Instalación completa" "$DOTFILE_DIR/full_install.sh"; then
-            break
-        fi
+        confirmation_message "Instalación completa" "$DOTFILE_DIR/full_install.sh"
     ;;
     "2")
-        echo ""
+        confirmation_message "Instalación por módulos" "$DOTFILE_DIR/modular_install.zsh"
+    ;;
+    "0")
         echo "=> Saliendo del instalador"
         break
     ;;
     *)
-        echo ""
         echo "=> Opción no valida, por favor intenta nuevamente"
     ;;
     esac

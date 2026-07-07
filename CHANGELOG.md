@@ -7,6 +7,21 @@ y este proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.h
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-07-07
+
+### Added
+
+- Nueva opción de instalación interactiva por módulos individuales.
+- Integración del menú de instalación modular y opción de salida en el script coordinador.
+
+### Changed 
+
+- Migración de los scripts de instalación de módulos de bash a zsh
+
+### Fixed
+
+- Corrección del interprete de comandos en la instrucción de instalación rápida del `README` para usar bash en lugar de zsh
+
 ## [1.0.1] - 2026-07-02
 
 ### Changed
