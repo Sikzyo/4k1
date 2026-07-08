@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/bin/bash
 
 USER_OS="Indefinido"
 DOTFILE_DIR="$HOME/.4k1"

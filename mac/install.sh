@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-DOTFILE_DIR="$HOME/.4k1/mac/scripts"
+DOTFILE_DIR="${0:A:h}/scripts"
 
 setopt errexit
 

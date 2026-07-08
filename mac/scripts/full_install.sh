@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-MODULES_DIR="$HOME/.4k1/mac/scripts/modules"
+MODULES_DIR="${0:A:h}/modules"
 
 setopt errexit
 
