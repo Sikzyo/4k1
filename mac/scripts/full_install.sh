@@ -2,8 +2,7 @@
 
 MODULES_DIR="$HOME/.4k1/mac/scripts/modules"
 
-set -E
-set -e
+setopt errexit
 
 alert_error() {
     echo ""
@@ -11,12 +10,14 @@ alert_error() {
     echo "=> Saliendo de la instalación"
 }
 
-trap alert_error ERR
+trap alert_error ZERR
+
+clear
 
 echo "=> Cargando modulo 1°..."
 
 echo ""
-zsh "$MODULES_DIR/01_homebrew.sh"
+zsh "$MODULES_DIR/01_homebrew.zsh"
 
 source ~/.zprofile
 
@@ -24,25 +25,25 @@ echo ""
 echo "=> Cargando modulo 2°..."
 
 echo ""
-zsh "$MODULES_DIR/02_git.sh"
+zsh "$MODULES_DIR/02_git.zsh"
 
 echo ""
 echo "=> Cargando modulo 3°..."
 
 echo ""
-zsh "$MODULES_DIR/03_ssh.sh"
+zsh "$MODULES_DIR/03_ssh.zsh"
 
 echo ""
 echo "=> Cargando modulo 4°..."
 
 echo ""
-zsh "$MODULES_DIR/04_fonts.sh"
+zsh "$MODULES_DIR/04_fonts.zsh"
 
 echo ""
 echo "=> Cargando modulo 5°..."
 
 echo ""
-zsh "$MODULES_DIR/05_zsh.sh"
+zsh "$MODULES_DIR/05_zsh.zsh"
 
 echo ""
 echo "=> Cargando modulo 6°..."
