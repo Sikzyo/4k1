@@ -30,6 +30,7 @@ show_menu() {
 trap alert_error ERR
 
 while true; do
+	clear
 	show_menu
 	echo ""
 	read "select_module?✦ Selecciona una opción: "
@@ -39,7 +40,7 @@ while true; do
 		echo "=> Regresando al menu principal"
 		break
 	elif [[ "$select_module" =~ ^[0-9]+$ ]] && [[ "$select_module" -ge 1 && "$select_module" -le $#MODULES_FILES ]]; then
-		chose_script="$MODULES_FILES[select_module]"
+		chose_script="$MODULES_FILES[$select_module]"
 		echo "=> Cargando modulo seleccionado"
 		echo ""
 		zsh "$chose_script"
