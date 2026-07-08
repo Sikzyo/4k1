@@ -1,9 +1,7 @@
 #!/usr/bin/env zsh
 
-# THEMES_DIR="$HOME/.4k1/mac/themes"
-# SCRIPTS_DIR="$HOME/.4k1/mac/scripts/theme_appliers"
-THEMES_DIR="$HOME/Develop/4k1/mac/themes"
-SCRIPTS_DIR="$HOME/Develop/4k1/mac/scripts/theme_appliers"
+THEMES_DIR="$HOME/.4k1/mac/themes"
+SCRIPTS_DIR="$HOME/.4k1/mac/scripts/theme_appliers"
 ALL_THEMES=("$THEMES_DIR"/*(N))
 
 

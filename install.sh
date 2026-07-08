@@ -67,7 +67,7 @@ mac_installer() {
     echo ""
     git clone https://github.com/Sikzyo/4k1.git "$DOTFILE_DIR"
 
-    # cd "$DOTFILE_DIR"
+    cd "$DOTFILE_DIR"
 
     zsh mac/install.sh
 }
