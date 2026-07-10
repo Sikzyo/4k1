@@ -1,82 +1,35 @@
-#!/usr/bin/env zsh
+#! /usr/bin/env zsh
 
 MODULES_DIR="${0:A:h}/modules"
+MODULES_FILES=("$MODULES_DIR"/*.zsh(N))
 
 setopt errexit
+trap alert_error ZERR
 
 alert_error() {
-    echo ""
-    echo "=> La ejecución se detuvo porque un modulo o comando fallo"
-    echo "=> Saliendo de la instalación"
+	echo ""
+	echo "=> La ejecución se detuvo porque un modulo o comando fallo"
+	echo "=> Saliendo de la instalación"
 }
-
-trap alert_error ZERR
 
 clear
 
-echo "=> Cargando modulo 1°..."
+echo "✦ Iniciando proceso de instalación completa ✦"
+
+for module in {1..$#MODULES_FILES}; do
+	chose_script="$MODULES_FILES[$module]"
+	filename=$(basename $chose_script)
+	display_name="${filename#*_}"
+	display_name="${display_name%.*}"
+
+	echo ""
+	echo "=> Cargando modulo $module) $display_name"
+	zsh "$chose_script"
+
+	if [[ "$display_name" == "homebrew" ]]; then
+		source ~/.zprofile
+	fi
+done
 
 echo ""
-zsh "$MODULES_DIR/01_homebrew.zsh"
-
-source ~/.zprofile
-
-echo ""
-echo "=> Cargando modulo 2°..."
-
-echo ""
-zsh "$MODULES_DIR/02_git.zsh"
-
-echo ""
-echo "=> Cargando modulo 3°..."
-
-echo ""
-zsh "$MODULES_DIR/03_ssh.zsh"
-
-echo ""
-echo "=> Cargando modulo 4°..."
-
-echo ""
-zsh "$MODULES_DIR/04_fonts.zsh"
-
-echo ""
-echo "=> Cargando modulo 5°..."
-
-echo ""
-zsh "$MODULES_DIR/05_zsh.zsh"
-
-echo ""
-echo "=> Cargando modulo 6°..."
-
-echo ""
-zsh "$MODULES_DIR/06_js.zsh"
-
-echo ""
-echo "=> Cargando modulo 7°..."
-
-echo ""
-zsh "$MODULES_DIR/07_go.zsh"
-
-echo ""
-echo "=> Cargando modulo 8°..."
-
-echo ""
-zsh "$MODULES_DIR/08_flutter.zsh"
-
-echo ""
-echo "=> Cargando modulo 9°..."
-
-echo ""
-zsh "$MODULES_DIR/09_docker.zsh"
-
-echo ""
-echo "=> Cargando modulo 10°..."
-
-echo ""
-zsh "$MODULES_DIR/10_terminal_apps.zsh"
-
-echo ""
-echo "=> Cargando modulo 11°..."
-
-echo ""
-zsh "$MODULES_DIR/11_gui_apps.zsh"
+echo "✦ ¡Instalación completa finalizada con éxito! ✦"
