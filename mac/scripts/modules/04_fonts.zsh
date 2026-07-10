@@ -4,7 +4,7 @@ FONTS=("font-monaspace" "font-cascadia-code" "font-jetbrains-mono" "font-google-
 SELECTED_FONTS=()
 
 echo "✦ Modulo fuentes ✦"
-set -e
+setopt errexit
 
 echo ""
 echo "✦ Selecciona las fuentes que quieres instalar en tu sistema"

@@ -3,7 +3,7 @@
 DOTFILE_DIR="${0:A:h:h:h}/config/zsh"
 
 echo "✦ Modulo zsh ✦"
-set -e
+setopt errexit
 
 while true; do
     echo ""

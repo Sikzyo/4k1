@@ -3,6 +3,8 @@
 DEV_PLATFORMS=("Android" "IOS")
 SELECT_DEV_PLATFORMS=()
 
+setopt errexit
+
 ios_config() {
     echo "✦ Para poder realizar la configuración para IOS es necesario que instale Xcode"
     
@@ -105,7 +107,6 @@ android_config() {
 }
 
 echo "✦ Modulo Flutter ✦"
-set -e
 
 echo ""
 echo "=> Validando instalación de Flutter"

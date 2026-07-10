@@ -6,7 +6,7 @@ SELECTED_TUI_APPS=()
 SELECTED_CLI_APPS=()
 
 echo "✦ Modulo apps de terminal ✦"
-set -e
+setopt errexit
 
 for tui in "${TUI_APPS[@]}"; do
     while true; do

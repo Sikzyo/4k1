@@ -4,7 +4,7 @@ GUI_APPS=("affinity" "antigravity-ide" "brave-browser" "chatgpt" "claude" "curso
 SELECTED_GUI_APPS=()
 
 echo "✦ Modulo apps ✦"
-set -e
+setopt errexit
 
 for gui in "${GUI_APPS[@]}"; do
     while true; do

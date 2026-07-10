@@ -4,7 +4,7 @@ GIT_USERNAME=$(git config --global user.name)
 GIT_EMAIL=$(git config --global user.email)
 
 echo "✦ Modulo Git ✦"
-set -e
+setopt errexit
 
 echo ""
 echo "=> Validando Git"

@@ -3,7 +3,7 @@
 GIT_EMAIL=$(git config --global user.email)
 
 echo "✦ Modulo SSH ✦"
-set -e
+setopt errexit
 
 echo ""
 echo "=> Validando si ya tienes creada una clave SSH"

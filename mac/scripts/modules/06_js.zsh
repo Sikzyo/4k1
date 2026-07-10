@@ -4,7 +4,7 @@ JS_TOOLS=("node" "pnpm" "bun")
 SELECTED_JS_TOOLS=()
 
 echo "✦ Modulo JavaScript ✦"
-set -e
+setopt errexit
 
 echo ""
 echo "✦ Selecciona las herramientas de JavaScript que quieras instalar"

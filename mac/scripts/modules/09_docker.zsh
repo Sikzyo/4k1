@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 echo "✦ Modulo Docker ✦"
-set -e
+setopt errexit
 
 echo ""
 echo "=> Validando si Docker esta instalado"

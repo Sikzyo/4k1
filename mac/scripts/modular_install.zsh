@@ -3,8 +3,8 @@
 MODULES_DIR="${0:A:h}/modules"
 MODULES_FILES=("$MODULES_DIR"/*.zsh(N))
 
-set -E
-set -e
+setopt errexit
+trap alert_error ZERR
 
 alert_error() {
 	echo ""

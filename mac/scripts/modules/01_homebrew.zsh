@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 echo "✦ Modulo Homebrew ✦"
-set -e
+setopt errexit
 
 echo ""
 echo "=> Validando si esta instalado Homebrew"
