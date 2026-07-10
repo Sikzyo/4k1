@@ -7,10 +7,10 @@ THEME_DIR="$1"
 
 echo ""
 echo "=> Validando instalación de micro"
-if ! command -v micro; then
+if ! command -v micro &> /dev/null; then
     echo ""
     echo "✦ Micro no se encuentra instalado"
-    exit 1
+    exit 0
 fi
 
 echo ""
