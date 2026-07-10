@@ -7,6 +7,21 @@ y este proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.h
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-07-10
+
+### Changed
+
+- Simplificación del script de fuentes (`04_fonts.zsh`) para instalar únicamente la tipografía JetBrains Mono Nerd Font de forma automática.
+- Automatización del instalador de herramientas de JavaScript (`06_js.zsh`) para aprovisionar Node, pnpm y Bun sin preguntas interactivas.
+- Automatización del módulo de Flutter (`08_flutter.zsh`) para configurar secuencialmente todas las plataformas (Android e iOS) sin interacción, omitiendo el aviso de Xcode si ya está instalado.
+- Reestructuración de `10_terminal_apps.zsh` para soportar aplicaciones de terminal tanto obligatorias (`neovim`, `micro`) como opcionales (`codex`, `claude-code`, `antigravity-cli`, `opencode`) con verificación previa de instalación y mensajes genéricos libres de etiquetas "obligatoria/opcional".
+- Rediseño de `full_install.sh` para hacerlo dinámico y escalable, cargando automáticamente los módulos disponibles en la carpeta `modules` ordenados alfabéticamente en consonancia con `modular_install.zsh`.
+- Simplificación de la lista de aplicaciones GUI en `11_gui_apps.zsh`.
+
+### Removed
+
+- Eliminación de archivos de configuración obsoletos de Cursor (`settings.json`) y Zsh (`env.zsh`).
+
 ## [1.1.0] - 2026-07-07
 
 ### Added
