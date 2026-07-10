@@ -14,7 +14,7 @@ alert_error() {
 
 show_menu() {
 	echo "------------------"
-	echo "Módulos disponibles"
+	echo "✦ Módulos disponibles ✦"
 	echo "------------------"
 	for module in {1..$#MODULES_FILES}; do
 		filename=$(basename $MODULES_FILES[$module])
