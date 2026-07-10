@@ -1,10 +1,10 @@
 #!/usr/bin/env zsh
 
-GUI_APPS=("affinity" "antigravity-ide" "brave-browser" "chatgpt" "claude" "cursor" "discord" "figma" "google-gemini" "notion" "obsidian" "ollama-app" "spotify" "steam" "tidal" "visual-studio-code" "warp" "yaak" "zed" "zen" )
+GUI_APPS=("affinity" "brave-browser" "discord" "figma" "obsidian" "ollama-app" "spotify" "steam" "tidal" "visual-studio-code" "warp" "yaak" "zed" "zen" )
 SELECTED_GUI_APPS=()
 
 echo "✦ Modulo apps ✦"
-set -e
+setopt errexit
 
 for gui in "${GUI_APPS[@]}"; do
     while true; do

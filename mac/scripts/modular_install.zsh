@@ -1,10 +1,10 @@
 #! /usr/bin/env zsh
 
-MODULES_DIR="$HOME/.4k1/mac/scripts/modules"
+MODULES_DIR="${0:A:h}/modules"
 MODULES_FILES=("$MODULES_DIR"/*.zsh(N))
 
-set -E
-set -e
+setopt errexit
+trap alert_error ZERR
 
 alert_error() {
 	echo ""
@@ -14,7 +14,7 @@ alert_error() {
 
 show_menu() {
 	echo "------------------"
-	echo "Módulos disponibles"
+	echo "✦ Módulos disponibles ✦"
 	echo "------------------"
 	for module in {1..$#MODULES_FILES}; do
 		filename=$(basename $MODULES_FILES[$module])
@@ -30,6 +30,7 @@ show_menu() {
 trap alert_error ERR
 
 while true; do
+	clear
 	show_menu
 	echo ""
 	read "select_module?✦ Selecciona una opción: "
@@ -39,7 +40,7 @@ while true; do
 		echo "=> Regresando al menu principal"
 		break
 	elif [[ "$select_module" =~ ^[0-9]+$ ]] && [[ "$select_module" -ge 1 && "$select_module" -le $#MODULES_FILES ]]; then
-		chose_script="$MODULES_FILES[select_module]"
+		chose_script="$MODULES_FILES[$select_module]"
 		echo "=> Cargando modulo seleccionado"
 		echo ""
 		zsh "$chose_script"

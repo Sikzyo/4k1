@@ -1,6 +1,8 @@
 #!/usr/bin/env zsh
 
-DOTFILE_DIR="$HOME/.4k1/mac/scripts"
+DOTFILE_DIR="${0:A:h}/scripts"
+
+setopt errexit
 
 option_menu(){
     echo "   __ __  __ _____"
@@ -14,6 +16,8 @@ option_menu(){
     echo "Menu de opciones"
     echo "1) Instalación completa"
     echo "2) Instalación por módulos"
+    echo "3) Actualizar configuraciones"
+    echo "4) Aplicar temas"
     echo "------------------"
 	echo "0) Para salir del instalador"
 	echo "------------------"
@@ -37,7 +41,7 @@ confirmation_message(){
             [nN])
                 echo ""
                 echo "=> Regresando al menu principal"
-                return 1
+                return 0
             ;;
             *)
                 echo ""
@@ -49,9 +53,9 @@ confirmation_message(){
 }
 
 echo "✦ Instalador para Mac ✦"
-set -e
 
 while true; do
+    clear
     option_menu
     echo ""
     read "selected_option?✦ Selecciona una opción: "
@@ -63,6 +67,12 @@ while true; do
     ;;
     "2")
         confirmation_message "Instalación por módulos" "$DOTFILE_DIR/modular_install.zsh"
+    ;;
+    "3")
+        confirmation_message "Actualizar configuraciones" "$DOTFILE_DIR/apply_config.zsh"
+    ;;
+    "4")
+        confirmation_message "Aplicar temas" "$DOTFILE_DIR/apply_theme.zsh"
     ;;
     "0")
         echo "=> Saliendo del instalador"

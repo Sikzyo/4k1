@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/bin/bash
 
 USER_OS="Indefinido"
 DOTFILE_DIR="$HOME/.4k1"
@@ -69,7 +69,6 @@ mac_installer() {
 
     cd "$DOTFILE_DIR"
 
-    echo ""
     zsh mac/install.sh
 }
 

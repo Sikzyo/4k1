@@ -1,0 +1,10 @@
+{
+	"colorscheme": "default-theme",
+	"cursorline": true,
+	"hlsearch": true,
+	"mkparents": true,
+	"rmtrailingws": true,
+	"scrollmargin": 5,
+	"softwrap": true,
+	"wordwrap": true
+}

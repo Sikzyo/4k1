@@ -1,81 +1,114 @@
 #!/usr/bin/env zsh
 
-TUI_APPS=("codex" "claude-code" "antigravity-cli")
-CLI_APPS=("opencode" "neovim" "micro")
-SELECTED_TUI_APPS=()
-SELECTED_CLI_APPS=()
+MANDATORY_TUI_APPS=()
+MANDATORY_CLI_APPS=("neovim" "micro")
+
+OPTIONAL_TUI_APPS=("codex" "claude-code" "antigravity-cli")
+OPTIONAL_CLI_APPS=("opencode")
 
 echo "✦ Modulo apps de terminal ✦"
-set -e
+setopt errexit
 
-for tui in "${TUI_APPS[@]}"; do
-    while true; do
-        echo ""
-        read "install_tui?✦ ¿Quieres instalar $tui? [y/n]: "
+is_installed() {
+    local app="$1"
+    
+    if command -v "$app" &> /dev/null; then
+        return 0
+    fi
+    
+    if brew list "$app" &> /dev/null; then
+        return 0
+    fi
+    
+    if brew list --cask "$app" &> /dev/null; then
+        return 0
+    fi
+    
+    return 1
+}
 
-        case "$install_tui" in
-            [yY])
-                SELECTED_TUI_APPS+=("$tui")
-                break
-            ;;
-            [nN])
-                break
-            ;;
-            *)
-                echo ""
-                echo "=> Opción no valida, por favor presiona 'y' o 'n'"
-            ;;
-        esac
-    done
+echo ""
+echo "✦ Instalando aplicaciones de terminal..."
+
+for app in "${MANDATORY_TUI_APPS[@]}"; do
+    echo ""
+    echo "=> Validando $app"
+    if is_installed "$app"; then
+        echo "✦ $app ya se encuentra instalado"
+    else
+        echo "=> Instalando $app"
+        brew install --cask "$app"
+        echo "✦ $app instalado correctamente"
+    fi
 done
 
-for cli in "${CLI_APPS[@]}"; do
-    while true; do
-        echo ""
-        read "install_cli?=> ¿Quieres instalar $cli? [y/n]: "
+for app in "${MANDATORY_CLI_APPS[@]}"; do
+    echo ""
+    echo "=> Validando $app"
+    if is_installed "$app"; then
+        echo "✦ $app ya se encuentra instalado"
+    else
+        echo "=> Instalando $app"
+        brew install "$app"
+        echo "✦ $app instalado correctamente"
+    fi
+done
 
-        case "$install_cli" in
-            [yY])
-                SELECTED_CLI_APPS+=("$cli")
-                break
-            ;;
-            [nN])
-                break
-            ;;
-            *)
-                echo ""
-                echo "=> Opción no valida, por favor presiona 'y' o 'n'"
-            ;;
-        esac
-    done
+for app in "${OPTIONAL_TUI_APPS[@]}"; do
+    echo ""
+    echo "=> Validando $app"
+    if is_installed "$app"; then
+        echo "✦ $app ya se encuentra instalado"
+    else
+        while true; do
+            read "install_app?✦ ¿Quieres instalar $app? [y/n]: "
+            case "$install_app" in
+                [yY])
+                    echo ""
+                    echo "=> Instalando $app"
+                    brew install --cask "$app"
+                    echo "✦ $app instalado correctamente"
+                    break
+                ;;
+                [nN])
+                    break
+                ;;
+                *)
+                    echo ""
+                    echo "=> Opción no valida, por favor presiona 'y' o 'n'"
+                ;;
+            esac
+        done
+    fi
+done
+
+for app in "${OPTIONAL_CLI_APPS[@]}"; do
+    echo ""
+    echo "=> Validando $app"
+    if is_installed "$app"; then
+        echo "✦ $app ya se encuentra instalado"
+    else
+        while true; do
+            read "install_app?✦ ¿Quieres instalar $app? [y/n]: "
+            case "$install_app" in
+                [yY])
+                    echo ""
+                    echo "=> Instalando $app"
+                    brew install "$app"
+                    echo "✦ $app instalado correctamente"
+                    break
+                ;;
+                [nN])
+                    break
+                ;;
+                *)
+                    echo ""
+                    echo "=> Opción no valida, por favor presiona 'y' o 'n'"
+                ;;
+            esac
+        done
+    fi
 done
 
 echo ""
-if [[ ${#SELECTED_TUI_APPS[@]} -eq 0 && ${#SELECTED_CLI_APPS[@]} -eq 0 ]]; then
-    echo "✦ No se selecciono ninguna app de terminal para instalar"
-else
-    echo "✦ Iniciando instalación de apps seleccionadas"
-
-    for selected_tui in "${SELECTED_TUI_APPS[@]}"; do
-        echo ""
-        echo "=> Instalando $selected_tui"
-
-        brew install --cask "$selected_tui"
-
-        echo ""
-        echo "✦ $selected_tui se instalo correctamente"
-    done
-
-    for selected_cli in "${SELECTED_CLI_APPS[@]}"; do
-        echo ""
-        echo "=> Instalando $selected_cli"
-
-        brew install "$selected_cli"
-
-        echo ""
-        echo "✦ $selected_cli se instalo correctamente"
-    done
-    
-    echo ""
-    echo "✦ Todas las apps de terminal fueron instaladas correctamente"
-fi
+echo "✦ Todas las aplicaciones de terminal deseadas han sido procesadas"
