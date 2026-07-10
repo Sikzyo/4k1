@@ -16,7 +16,8 @@ option_menu(){
     echo "Menu de opciones"
     echo "1) Instalación completa"
     echo "2) Instalación por módulos"
-    echo "3) Aplicar temas"
+    echo "3) Actualizar configuraciones"
+    echo "4) Aplicar temas"
     echo "------------------"
 	echo "0) Para salir del instalador"
 	echo "------------------"
@@ -68,6 +69,9 @@ while true; do
         confirmation_message "Instalación por módulos" "$DOTFILE_DIR/modular_install.zsh"
     ;;
     "3")
+        confirmation_message "Actualizar configuraciones" "$DOTFILE_DIR/apply_config.zsh"
+    ;;
+    "4")
         confirmation_message "Aplicar temas" "$DOTFILE_DIR/apply_theme.zsh"
     ;;
     "0")
