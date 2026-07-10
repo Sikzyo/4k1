@@ -1,43 +1,44 @@
 #!/usr/bin/env zsh
 
-DEV_PLATFORMS=("Android" "IOS")
-SELECT_DEV_PLATFORMS=()
-
 setopt errexit
 
 ios_config() {
     echo "✦ Para poder realizar la configuración para IOS es necesario que instale Xcode"
     
-    while true; do
-        read "open_install_xcode?✦ ¿Desear abrir la App Store para instalar xcode? [y/n]: "
-        case "$open_install_xcode" in
-            [yY])
-                open -a "App Store" 
+    if ! ls /Applications | grep -i -q "Xcode"; then
+        while true; do
+            read "open_install_xcode?✦ ¿Desear abrir la App Store para instalar xcode? [y/n]: "
+            case "$open_install_xcode" in
+                [yY])
+                    open -a "App Store" 
+                    break
+                ;;
+                [nN])
+                    exit 1
+                ;;
+                *)
+                    echo ""
+                    echo "=> Opción no valida, por favor presiona 'y' o 'n'"
+                ;;
+            esac
+        done
+
+        echo "=> Validando Xcode"
+
+        echo ""
+        while true; do
+            if ! ls /Applications | grep -i -q "Xcode"; then
+                echo "✦ Se requiere tener instalado Xcode para poder continuar"
+                echo "✦ Instala Xcode para poder continuar..."
+                sleep 5
+            else
+                echo "✦ Xcode instalado correctamente"
                 break
-            ;;
-            [nN])
-                exit 1
-            ;;
-            *)
-                echo ""
-                echo "=> Opción no valida, por favor presiona 'y' o 'n'"
-            ;;
-        esac
-    done
-
-    echo "=> Validando Xcode"
-
-    echo ""
-    while true; do
-        if ! ls /Applications | grep -i -q "Xcode"; then
-            echo "✦ Se requiere tener instalado Xcode para poder continuar"
-            echo "✦ Instala Xcode para poder continuar..."
-            sleep 5
-        else
-            echo "✦ Xcode instalado correctamente"
-            break
-        fi
-    done
+            fi
+        done
+    else
+        echo "✦ Xcode ya se encuentra instalado"
+    fi
 
     echo ""
     echo "=> Iniciando configuración para desarrollo IOS"
@@ -130,47 +131,12 @@ echo "=> Ejecutando Flutter Doctor"
 flutter doctor
 
 echo ""
-echo "✦ Vamos a configurar las plataformas de desarrollo para Flutter"
-echo "✦ Selecciona las que quieras instalar y configurar"
+echo "✦ Iniciando configuración de las plataformas de desarrollo para Flutter"
 
-for dev_platform in "${DEV_PLATFORMS[@]}"; do
-    while true; do
-        echo ""
-        read "add_dev_platform?✦ ¿Quieres configurar $dev_platform? [y/n]: "
+echo ""
+echo "✦ Configurando Android..."
+android_config
 
-        case "$add_dev_platform" in
-            [yY])
-                SELECT_DEV_PLATFORMS+=("$dev_platform")
-                break
-            ;;
-            [nN])
-                break
-            ;;
-            *)
-                echo ""
-                echo "=> Opción no valida, por favor presiona 'y' o 'n'"
-            ;;
-        esac
-    done
-done
-
-if [ ${#SELECT_DEV_PLATFORMS[@]} -eq 0 ]; then
-    echo ""
-    echo "✦ No se selecciono ninguna plataforma"
-else
-    for select_dev_platform in "${SELECT_DEV_PLATFORMS[@]}"; do
-        echo ""
-
-        case "$select_dev_platform" in
-            "Android")
-                android_config
-            ;;
-            "IOS")
-                ios_config
-            ;;
-            *)
-                echo ""
-            ;;
-        esac
-    done
-fi
+echo ""
+echo "✦ Configurando IOS..."
+ios_config
