@@ -14,6 +14,14 @@ if ! command -v micro &> /dev/null; then
     exit 0
 fi
 
+if [[ ! -d "$MICRO_DIR" ]]; then
+    mkdir -p "$MICRO_DIR"
+fi
+
+if [[ ! -d "$COLOR_THEME_DIR" ]]; then
+    mkdir -p "$COLOR_THEME_DIR"
+fi
+
 if [[ ! -f "$COLOR_THEME_DIR/default-theme.micro" ]]; then
     touch "$COLOR_THEME_DIR/default-theme.micro"
 fi
