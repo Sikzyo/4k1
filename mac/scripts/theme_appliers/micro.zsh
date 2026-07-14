@@ -1,9 +1,10 @@
 #!/usr/bin/env zsh
 
 echo "✦ Tema de color para Micro ✦"
-set -e
+setopt errexit
 
 THEME_DIR="$1"
+MICRO_DIR="$HOME/.config/micro/colorschemes"
 
 echo ""
 echo "=> Validando instalación de micro"
@@ -16,9 +17,9 @@ fi
 echo ""
 echo "=> Creando carpeta para temas"
 
-mkdir -p "$HOME/.config/micro/colorschemes"
+mkdir -p "$MICRO_DIR"
 
 echo ""
 echo "=> Copiando tema para Micro"
 
-cp "$THEME_DIR/default-theme.micro" "$HOME/.config/micro/colorschemes"
+cp "$THEME_DIR/default-theme.micro" "$MICRO_DIR"
