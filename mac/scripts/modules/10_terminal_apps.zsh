@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
-MANDATORY_TUI_APPS=()
-MANDATORY_CLI_APPS=("neovim" "micro")
+MANDATORY_TUI_APPS=("ghostty")
+MANDATORY_CLI_APPS=("neovim" "micro" "zoxide" "ripgrep" "fd" "fzf" "bat" "eza")
 
 OPTIONAL_TUI_APPS=("codex" "claude-code" "antigravity-cli")
 OPTIONAL_CLI_APPS=("opencode")
@@ -11,19 +11,19 @@ setopt errexit
 
 is_installed() {
     local app="$1"
-    
+
     if command -v "$app" &> /dev/null; then
         return 0
     fi
-    
+
     if brew list "$app" &> /dev/null; then
         return 0
     fi
-    
+
     if brew list --cask "$app" &> /dev/null; then
         return 0
     fi
-    
+
     return 1
 }
 
