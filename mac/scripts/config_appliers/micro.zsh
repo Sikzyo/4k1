@@ -11,16 +11,10 @@ echo "✦ Configuraciones para Micro ✦"
 if ! command -v micro &> /dev/null; then
     echo ""
     echo "✦ Micro no se encuentra instalado"
-    exit 0
+    exit 1
 fi
 
-if [[ ! -d "$MICRO_DIR" ]]; then
-    mkdir -p "$MICRO_DIR"
-fi
-
-if [[ ! -d "$COLOR_THEME_DIR" ]]; then
-    mkdir -p "$COLOR_THEME_DIR"
-fi
+mkdir -p "$MICRO_DIR" "$COLOR_THEME_DIR"
 
 if [[ ! -f "$COLOR_THEME_DIR/default-theme.micro" ]]; then
     touch "$COLOR_THEME_DIR/default-theme.micro"
@@ -30,4 +24,3 @@ echo ""
 echo "=> Aplicando configuraciones"
 
 cp "$CONFIG_DIR/settings.json" "$MICRO_DIR"
-
