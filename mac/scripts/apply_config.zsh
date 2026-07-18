@@ -47,7 +47,6 @@ for config in "$ALL_CONFIGS[@]"; do
     applier_script="$config"
     
     if [[ -f $applier_script ]]; then
-        echo "Si funciona"
         echo ""
         zsh "$applier_script"
     fi
