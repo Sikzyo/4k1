@@ -3,9 +3,8 @@
 setopt errexit
 trap alert_error ZERR
 
-CONFIG_DIR="${0:A:h:h}/config"
 SCRIPTS_DIR="${0:A:h}/config_appliers"
-ALL_CONFIGS=("$CONFIG_DIR"/*(N))
+ALL_CONFIGS=("$SCRIPTS_DIR"/*(N))
 
 alert_error() {
     echo ""
@@ -45,10 +44,10 @@ echo ""
 echo "=> Aplicando configuraciones"
 
 for config in "$ALL_CONFIGS[@]"; do
-    config_name=$(basename "$config")
-    applier_script="$SCRIPTS_DIR/$config_name.zsh"
+    applier_script="$config"
     
     if [[ -f $applier_script ]]; then
+        echo "Si funciona"
         echo ""
         zsh "$applier_script"
     fi
