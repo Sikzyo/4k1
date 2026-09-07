@@ -47,7 +47,7 @@ func InstallXcode() error {
 		return cmd
 	}
 
-	fmt.Println("La instalación de Xcode se ejecuto de manera correcta")
+	fmt.Println("✦ La instalación de Xcode se ejecuto de manera correcta")
 
 	return nil
 }
