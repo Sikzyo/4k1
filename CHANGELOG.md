@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-09-08
+
+### Added
+
+- Agregar pasos de instalación para Git
+- Se mejora el input para que ahora acepte respuesta de texto
+- Agregar funcionalidad para instalar y configurar Git
+
+### Fixed
+
+- Se corrige la validación de los input en el menu principal
+
 ## [0.2.0] - 2026-09-07
 
 ### Added
