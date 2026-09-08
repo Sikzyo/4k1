@@ -1,19 +1,18 @@
 package input
 
 import (
-	"errors"
+	"bufio"
 	"fmt"
-	"strconv"
+	"os"
 )
 
-func GetInput() (int, error) {
-	var input string
-	fmt.Println("Ingresa una respuesta:")
-	fmt.Print("-> ")
-	fmt.Scan(&input)
-	number, err := strconv.Atoi(input)
-	if err != nil {
-		return -1, errors.New("Solo se aceptan respuestas numéricas")
-	}
-	return number, nil
+func GetInput() (string, error) {
+	scanner := bufio.NewScanner(os.Stdin)
+	fmt.Println("-> Ingresa una respuesta:")
+	fmt.Print("✦ ")
+	scanner.Scan()
+
+	text := scanner.Text()
+
+	return text, nil
 }

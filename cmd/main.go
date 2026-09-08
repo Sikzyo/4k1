@@ -30,13 +30,12 @@ func main() {
 
 		if err != nil {
 			fmt.Println("-> Error:", err)
-
 		}
 
 		switch response {
-		case 1:
+		case "1":
 			tasks.FullInstall()
-		case 0:
+		case "0":
 			fmt.Println("Gracias por usar 4k1")
 			close = true
 		default:
