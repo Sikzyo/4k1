@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/sikzyo/4k1/internal/input"
 	"github.com/sikzyo/4k1/internal/menu"
@@ -23,24 +24,28 @@ func main() {
 		Exit:     "Salir de 4k1",
 	}
 
-	close := false
-	for !close {
-		menu.ShowMenu(MainMenu)
-		response, err := input.GetInput()
+	menuOptions(MainMenu)
+}
+
+func menuOptions(mainMenu models.MenuModel) {
+	for {
+		menu.ShowMenu(mainMenu)
+		responde, err := input.GetInput()
 
 		if err != nil {
-			fmt.Println("-> Error:", err)
+			fmt.Println(err)
+			os.Exit(1)
 		}
 
-		switch response {
+		switch responde {
 		case "1":
 			tasks.FullInstall()
 		case "0":
-			fmt.Println("Gracias por usar 4k1")
-			close = true
+			fmt.Println("-> Gracias por utilizar 4k1")
+			return
 		default:
-			fmt.Println("Opción no valida, intenta nuevamente")
+			menu.ShowMessages("La opción que seleccionaste no es correcta, por favor inténtalo nuevamente")
 		}
-	}
 
+	}
 }
