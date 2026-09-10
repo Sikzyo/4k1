@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Mejorar la estructura del menu y manejo de errores
 
+### Removed
+
+- Eliminar funcionalidades `divider.go` y `logo.go`
+
 ## [0.3.0] - 2026-09-08
 
 ### Added
