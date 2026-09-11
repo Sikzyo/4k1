@@ -2,28 +2,44 @@ package menu
 
 import (
 	"fmt"
-	"os"
+	"time"
 
 	"github.com/sikzyo/4k1/internal/execute"
 	"github.com/sikzyo/4k1/internal/models"
 )
 
 func ShowMenu(Menu models.MenuModel) {
-	err := execute.Command("clear")
-	if err != nil {
-		fmt.Println("Un error ocurrió al iniciar el programa")
-		os.Exit(1)
-	}
+	execute.Command("clear")
 	if Menu.ShowLogo {
-		ShowLogo()
+		showLogo()
 	}
-	ShowDivider()
+	showDivider()
 	fmt.Println(Menu.Title)
-	ShowDivider()
+	showDivider()
 	for indice, option := range Menu.Options {
 		fmt.Print(indice+1, ") ", option, "\n")
 	}
-	ShowDivider()
+	showDivider()
 	fmt.Println("0)", Menu.Exit)
-	ShowDivider()
+	showDivider()
+}
+
+func ShowMessages(message string) {
+	execute.Command("clear")
+	showDivider()
+	fmt.Println("△ Mensaje:", message, "△")
+	showDivider()
+	time.Sleep(4 * time.Second)
+}
+
+func showDivider() {
+	fmt.Println("——————————————")
+}
+
+func showLogo() {
+	fmt.Println("   __ __  __  ___")
+	fmt.Println("  / // / / /_<  /")
+	fmt.Println(" / // /_/ //_/ / ")
+	fmt.Println("/__  __/ ,< / /  ")
+	fmt.Println("  /_/ /_/|_/_/   ")
 }
